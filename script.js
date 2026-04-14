@@ -6,14 +6,11 @@ document.addEventListener("DOMContentLoaded", function () {
     flex.style.display = "flex";
     flex.style.flexDirection = "column";
     flex.style.rowGap = "1px";
-
     flex.appendChild(document.createElement("div"));
     flex.appendChild(document.createElement("div"));
-
     document.body.appendChild(flex);
     var isSupported = flex.scrollHeight === 1;
     flex.remove();
-
     if (!isSupported) document.body.classList.add("no-flexbox-gap");
   }
   checkFlexGap();
@@ -28,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ===== MODAL (giữ nguyên để mở được modal pricing) =====
+  // ===== MODAL PRICING (giữ nguyên để modal vẫn mở được) =====
   const modal = document.getElementById("pricingModal");
   const btns = document.querySelectorAll(".btn-pricing");
   const closeBtn = document.getElementById("closeModal");
@@ -36,12 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
   btns.forEach((btn) => {
     btn.addEventListener("click", function (e) {
       e.preventDefault();
-
-      const plan = btn.closest(".pricing-plan")
-        .querySelector(".plan-name").textContent;
-
+      const plan = btn.closest(".pricing-plan").querySelector(".plan-name").textContent;
       document.getElementById("selectedPlan").value = plan;
-
       modal.style.display = "flex";
       document.body.style.overflow = "hidden";
     });
@@ -53,46 +46,42 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   if (closeBtn) closeBtn.addEventListener("click", closeModal);
+  window.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
 
-  window.addEventListener("click", function (e) {
-    if (e.target === modal) closeModal();
-  });
-
-  // ===== CHỈ XỬ LÝ FORM CTA - HIỆN THÔNG BÁO THÀNH CÔNG =====
+  // ==================== PHẦN CHÍNH: FORM CTA ====================
   const ctaForm = document.querySelector(".cta-form");
   const successMessage = document.getElementById("successMessage");
 
   if (ctaForm && successMessage) {
     ctaForm.addEventListener("submit", function (e) {
-      e.preventDefault();
+      e.preventDefault();   // Ngăn reload trang
 
       // Hiện thông báo thành công
       successMessage.style.display = "block";
 
-      // Cuộn mượt mà xuống thông báo để người dùng dễ thấy
+      // Cuộn xuống để thấy thông báo rõ ràng
       successMessage.scrollIntoView({ 
-        behavior: "smooth",
-        block: "center"
+        behavior: "smooth", 
+        block: "center" 
       });
 
-      // Reset form sau 4 giây và ẩn thông báo
-      setTimeout(() => {
-        ctaForm.reset();
-        successMessage.style.display = "none";
-      }, 4500);
+      console.log("✅ Đăng ký CTA thành công!");
 
-      console.log("Đăng ký CTA thành công - Thông báo đã hiện!");
+      // Tự động ẩn thông báo và reset form sau 5 giây
+      setTimeout(() => {
+        successMessage.style.display = "none";
+        ctaForm.reset();
+      }, 5000);
     });
   }
 
-  // ===== FORM FREE SAMPLE (giữ nguyên) =====
+  // ===== FORM SAMPLE (giữ nguyên) =====
   const sampleForm = document.getElementById("sampleForm");
   const successMsg = document.getElementById("successMsg");
 
   if (sampleForm && successMsg) {
     sampleForm.addEventListener("submit", function (e) {
       e.preventDefault();
-
       sampleForm.style.display = "none";
       successMsg.style.display = "block";
 
