@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       name="description"
-      content="Omnifood is an AI-powered food subscription that will make you eat healthy again, 365 days per year. It's tailored to your personal tastes and nutritional needs."
+      content="Soulfood is an AI-powered food subscription that will make you eat healthy again, 365 days per year. It's tailored to your personal tastes and nutritional needs."
     />
     <!-- Always include this line of code!!! -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -732,6 +732,13 @@ font-size: 1.4rem;
               role="img"
               aria-label="Woman enjoying food"
             ></div>
+            <div id="cta-success-msg" style="display: none; background-color: #51cf66; color: #fff; padding: 3.2rem; border-radius: 9px; text-align: center;">
+    <ion-icon name="checkmark-circle-outline" style="font-size: 6.4rem; margin-bottom: 1.6rem;"></ion-icon>
+    <h3 class="heading-tertiary" style="color: #fff; margin-bottom: 1.2rem;">Đăng ký thành công!</h3>
+    <p style="font-size: 1.8rem; line-height: 1.5;">
+      Cảm ơn bạn đã tin tưởng SoulFood. Bữa ăn miễn phí đầu tiên của bạn đang được chuẩn bị và thông tin chi tiết đã được gửi đến email. Chúc bạn một ngày ngon miệng!
+    </p>
+  </div>
           </div>
         </div>
       </section>
@@ -973,6 +980,23 @@ font-size: 1.4rem;
             }, 4000);
         });
     }
+
+    //JS cho Bữa ăn free
+  const ctaForm = document.getElementById('cta-subscription-form');
+  const ctaSuccess = document.getElementById('cta-success-msg');
+
+  if (ctaForm && ctaSuccess) {
+    ctaForm.addEventListener('submit', function (e) {
+      e.preventDefault(); // Ngăn chặn load lại trang
+
+      // Hiệu ứng chuyển đổi
+      ctaForm.style.display = 'none'; // Ẩn form
+      ctaSuccess.style.display = 'block'; // Hiển thị thông báo thành công
+      
+      // Tự động cuộn nhẹ đến thông báo để người dùng thấy rõ
+      ctaSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
 </script>
   </body>
 </html>
