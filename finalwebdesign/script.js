@@ -43,25 +43,7 @@ checkFlexGap();
         });
     }
 
-//module
-    (function() {
-            const modal = document.getElementById('pricingModal');
-            const btns = document.querySelectorAll('.btn-pricing');
-            const closeBtn = document.getElementById('closeModal');
-            btns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    modal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-            const close = () => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            };
-            closeBtn.onclick = close;
-            window.onclick = (e) => { if (e.target == modal) close(); };
-        })();
+
 
 // https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js
 
