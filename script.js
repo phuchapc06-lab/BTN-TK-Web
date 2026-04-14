@@ -17,6 +17,62 @@ function checkFlexGap() {
   if (!isSupported) document.body.classList.add("no-flexbox-gap");
 }
 checkFlexGap();
+///////////////////////////////////////////////////////////
+// Hiển thị thông báo đăng ký thành công (modal form)
+
+const pricingForm = document.getElementById("pricingForm");
+const modal = document.getElementById("pricingModal");
+
+// Tạo toast nếu chưa có trong HTML
+let toast = document.getElementById("toast-success");
+
+if (!toast) {
+  toast = document.createElement("div");
+  toast.id = "toast-success";
+  toast.textContent = "🎉 Đăng ký thành công!";
+  document.body.appendChild(toast);
+
+  toast.style.position = "fixed";
+  toast.style.top = "20px";
+  toast.style.right = "20px";
+  toast.style.background = "#51cf66";
+  toast.style.color = "#fff";
+  toast.style.padding = "1.4rem 2.4rem";
+  toast.style.borderRadius = "8px";
+  toast.style.fontSize = "1.6rem";
+  toast.style.fontWeight = "600";
+  toast.style.boxShadow = "0 10px 25px rgba(0,0,0,0.2)";
+  toast.style.opacity = "0";
+  toast.style.transform = "translateY(-20px)";
+  toast.style.transition = "all 0.4s ease";
+  toast.style.zIndex = "999999";
+}
+
+// Xử lý submit
+if (pricingForm) {
+  pricingForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Hiện toast
+    toast.style.opacity = "1";
+    toast.style.transform = "translateY(0)";
+
+    // Ẩn sau 3s
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      toast.style.transform = "translateY(-20px)";
+    }, 3000);
+
+    // Reset form
+    pricingForm.reset();
+
+    // Đóng modal
+    if (modal) {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  });
+}
 
 // https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js
 
