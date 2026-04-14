@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  // ===== FIX FLEX GAP =====
   function checkFlexGap() {
     var flex = document.createElement("div");
     flex.style.display = "flex";
@@ -18,22 +17,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   checkFlexGap();
 
-  // ===== MODAL + FORM =====
   const modal = document.getElementById("pricingModal");
   const btns = document.querySelectorAll(".btn-pricing");
   const closeBtn = document.getElementById("closeModal");
   const form = document.getElementById("pricingForm");
 
-  // MỞ MODAL
   btns.forEach((btn) => {
     btn.addEventListener("click", function (e) {
       e.preventDefault();
+
+      const plan = btn.closest(".pricing-plan")
+        .querySelector(".plan-name").textContent;
+
+      document.getElementById("selectedPlan").value = plan;
+
       modal.style.display = "flex";
       document.body.style.overflow = "hidden";
     });
   });
 
-  // ĐÓNG MODAL
   const close = () => {
     modal.style.display = "none";
     document.body.style.overflow = "auto";
@@ -45,35 +47,35 @@ document.addEventListener("DOMContentLoaded", function () {
     if (e.target === modal) close();
   });
 
-  // ===== TOAST =====
   const toast = document.createElement("div");
   toast.textContent = "🎉 Đăng ký thành công!";
   document.body.appendChild(toast);
 
-  toast.style.position = "fixed";
-  toast.style.top = "20px";
-  toast.style.right = "20px";
-  toast.style.background = "#51cf66";
-  toast.style.color = "#fff";
-  toast.style.padding = "1.4rem 2.4rem";
-  toast.style.borderRadius = "8px";
-  toast.style.fontSize = "1.6rem";
-  toast.style.fontWeight = "600";
-  toast.style.boxShadow = "0 10px 25px rgba(0,0,0,0.2)";
-  toast.style.opacity = "0";
-  toast.style.transform = "translateY(-20px)";
-  toast.style.transition = "all 0.4s ease";
-  toast.style.zIndex = "9999999";
+  Object.assign(toast.style, {
+    position: "fixed",
+    top: "20px",
+    right: "20px",
+    background: "#51cf66",
+    color: "#fff",
+    padding: "1.4rem 2.4rem",
+    borderRadius: "8px",
+    fontSize: "1.6rem",
+    fontWeight: "600",
+    boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
+    opacity: "0",
+    transform: "translateY(-20px)",
+    transition: "all 0.4s ease",
+    zIndex: "9999999"
+  });
 
-  // ===== SUBMIT =====
   if (form) {
+    console.log("FORM OK");
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      // đóng modal trước
       close();
 
-      // hiện toast
       toast.style.opacity = "1";
       toast.style.transform = "translateY(0)";
 
