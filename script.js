@@ -18,11 +18,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   checkFlexGap();
 
+  // ===== MOBILE MENU =====
+  const btnNav = document.querySelector(".btn-mobile-nav");
+  const nav = document.querySelector(".main-nav-list");
+
+  if (btnNav && nav) {
+    btnNav.addEventListener("click", function () {
+      nav.classList.toggle("open");
+    });
+  }
+
   // ===== MODAL =====
   const modal = document.getElementById("pricingModal");
   const btns = document.querySelectorAll(".btn-pricing");
   const closeBtn = document.getElementById("closeModal");
-  const form = document.getElementById("pricingForm");
 
   btns.forEach((btn) => {
     btn.addEventListener("click", function (e) {
@@ -49,47 +58,46 @@ document.addEventListener("DOMContentLoaded", function () {
     if (e.target === modal) closeModal();
   });
 
-  // ===== TOAST =====
-  const toast = document.createElement("div");
-  toast.innerText = "🎉 Đăng ký thành công!";
-  document.body.appendChild(toast);
+  // ===== FORM SUBMIT (MODAL) =====
+  const form = document.getElementById("pricingForm");
+  const success = document.getElementById("successMessage");
 
-  Object.assign(toast.style, {
-    position: "fixed",
-    top: "20px",
-    right: "20px",
-    background: "#51cf66",
-    color: "#fff",
-    padding: "1.4rem 2.4rem",
-    borderRadius: "8px",
-    fontSize: "1.6rem",
-    fontWeight: "600",
-    boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
-    opacity: "0",
-    transform: "translateY(-20px)",
-    transition: "all 0.4s ease",
-    zIndex: "9999999"
-  });
-
-  // ===== SUBMIT FORM =====
   if (form) {
     form.addEventListener("submit", function (e) {
-      e.preventDefault(); // ❗ QUAN TRỌNG NHẤT
+      e.preventDefault(); // ❗ chặn reload
 
-      console.log("SUBMIT OK"); // test debug
+      console.log("SUBMIT MODAL OK");
 
       closeModal();
 
-      // show toast
-      toast.style.opacity = "1";
-      toast.style.transform = "translateY(0)";
+      if (success) {
+        success.style.display = "block";
 
-      setTimeout(() => {
-        toast.style.opacity = "0";
-        toast.style.transform = "translateY(-20px)";
-      }, 3000);
+        setTimeout(() => {
+          success.style.display = "none";
+        }, 3000);
+      }
 
       form.reset();
+    });
+  }
+
+  // ===== FORM FREE SAMPLE =====
+  const sampleForm = document.getElementById("sampleForm");
+  const successMsg = document.getElementById("successMsg");
+
+  if (sampleForm && successMsg) {
+    sampleForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      sampleForm.style.display = "none";
+      successMsg.style.display = "block";
+
+      setTimeout(() => {
+        sampleForm.reset();
+        sampleForm.style.display = "block";
+        successMsg.style.display = "none";
+      }, 4000);
     });
   }
 
