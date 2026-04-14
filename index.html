@@ -657,26 +657,6 @@ font-size: 1.4rem;
         .p-scroll-body::-webkit-scrollbar { width: 6px; }
         .p-scroll-body::-webkit-scrollbar-thumb { background: #e67e22; border-radius: 10px; }
     </style>
-    <script>
-        (function() {
-            const modal = document.getElementById('pricingModal');
-            const btns = document.querySelectorAll('.btn-pricing');
-            const closeBtn = document.getElementById('closeModal');
-            btns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    modal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                });
-            });
-            const close = () => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            };
-            closeBtn.onclick = close;
-            window.onclick = (e) => { if (e.target == modal) close(); };
-        })();
-    </script>
 </div>
       <section class="section-cta" id="cta">
         <div class="container">
