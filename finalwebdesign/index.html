@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/general.css" />
     <link rel="stylesheet" href="css/queries.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
 
     <script
       type="module"
@@ -482,7 +483,7 @@
               </li>
             </ul>
             <div class="plan-sing-up">
-              <a href="#" class="btn btn--full">Start eating well</a>
+              <a href="javascript:void(0)" class="btn btn--full btn-pricing">Start eating well</a>
             </div>
           </div>
 
@@ -511,7 +512,7 @@
               </li>
             </ul>
             <div class="plan-sing-up">
-              <a href="#" class="btn btn--full">Start eating well</a>
+              <a href="javascript:void(0)"class="btn btn--full btn-pricing">Start eating well</a>
             </div>
           </div>
         </div>
@@ -695,116 +696,6 @@
     </footer>
 
     ------------------------------
-    <!-- RESPONSIVE  -->
-<style>
-    .btn-mobile-nav {
-        display: none;
-        font-size: 3.6rem;
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: #333;
-        padding: 0.5rem;
-    }
-
-    /* Tablet */
-    @media (max-width: 1024px) {
-        .hero, .step {
-            grid-template-columns: 1fr;
-            text-align: center;
-            gap: 4.8rem;
-        }
-    }
-
-    /* Điện thoại */
-    @media (max-width: 768px) {
-        html { font-size: 54%; }
-        
-        .header {
-            height: 7.2rem;
-            padding: 0 2rem;
-        }
-        
-        .main-nav-list {
-            position: fixed;
-            top: 7.2rem;
-            left: 100%;
-            width: 100%;
-            height: calc(100vh - 7.2rem);
-            background-color: #fdf2e9;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 6rem;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            z-index: 999;
-        }
-        
-        .main-nav-list.open {
-            left: 0;
-        }
-        
-        .btn-mobile-nav {
-            display: block;
-        }
-        
-        .heading-primary {
-            font-size: 3.6rem;
-            line-height: 1.1;
-        }
-        
-        section {
-            padding: 6rem 0;
-        }
-        
-        .container {
-            padding: 0 2rem;
-        }
-        
-        .meal-grid, .pricing-grid, .testimonial-grid {
-            grid-template-columns: 1fr;
-            gap: 2.4rem;
-        }
-        
-        .gallery {
-            grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-            gap: 1.2rem;
-        }
-    }
-
-    /* Điện thoại màn nhỏ */
-    @media (max-width: 480px) {
-        .heading-primary {
-            font-size: 3.2rem;
-        }
-        .btn {
-            padding: 1.4rem 2.8rem;
-            font-size: 1.8rem;
-        }
-    }
-
-    /* Style module phụ */
-    .module {
-        background: #fff;
-        padding: 4rem 2.4rem;
-        border-radius: 11px;
-        margin: 5rem auto;
-        max-width: 100%;
-        box-shadow: 0 2rem 6rem rgba(0,0,0,0.1);
-    }
-
-    .success-message {
-        display: none;
-        background: #51cf66;
-        color: white;
-        padding: 2rem;
-        border-radius: 9px;
-        margin-top: 2rem;
-        text-align: center;
-        font-size: 1.9rem;
-    }
-</style>
 
 <!-- MODULE PHỤ 1: THÔNG TIN ĐỘ PHỦ & SỐ LIỆU -->
 <section class="module">
@@ -844,37 +735,47 @@
     </div>
 </section>
 
-<!-- JAVASCRIPT -->
-<script>
-    // JS cho Menu Mobile
-    const mobileBtn = document.getElementById('mobile-btn');
-    const navList = document.getElementById('main-nav');
+//
+<div id="pricingModal" class="p-modal-wrapper">
+    <div class="p-modal-box">
+        <span id="closeModal" class="p-close-btn">&times;</span>
+        
+        <div class="p-header">
+            <h2>Đăng ký hội viên</h2>
+            <p>Khởi đầu lối sống lành mạnh cùng SoulFood</p>
+        </div>
 
-    if (mobileBtn && navList) {
-        mobileBtn.addEventListener('click', () => {
-            navList.classList.toggle('open');
-            mobileBtn.textContent = navList.classList.contains('open') ? '✕' : '☰';
-        });
-    }
+        <div class="p-scroll-body">
+            <form id="pricingForm" class="p-form">
+                <div class="p-form-group">
+                    <label>Gói dịch vụ đã chọn</label>
+                    <input type="text" id="selectedPlan" readonly class="p-input-readonly">
+                </div>
 
-    // JS cho Form
-    const sampleForm = document.getElementById('sampleForm');
-    const successMsg = document.getElementById('successMsg');
+                <div class="p-form-group">
+                    <label>Họ và tên</label>
+                    <input type="text" id="p-name" placeholder="Name" required class="white-input">
+                </div>
 
-    if (sampleForm && successMsg) {
-        sampleForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            sampleForm.style.display = 'none';
-            successMsg.style.display = 'block';
+                <div class="p-form-group">
+                    <label>Số điện thoại</label>
+                    <input type="tel" id="p-phone" placeholder="09xxxxxxxx" required class="white-input">
+                </div>
 
-            setTimeout(() => {
-                sampleForm.reset();
-                sampleForm.style.display = 'block';
-                successMsg.style.display = 'none';
-            }, 4000);
-        });
-    }
-</script>
+                <div class="p-form-group">
+                    <label>Địa chỉ Email</label>
+                    <input type="email" id="p-email" placeholder="me@gmail.com" required class="white-input">
+                </div>
+
+                <div class="p-form-group">
+                    <label>Ghi chú yêu cầu</label>
+                    <textarea id="p-note" rows="2" placeholder="..." class="white-input"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Xác nhận đăng ký ngay</button>
+            </form>
+        </div>
+    </div>
 
   </body>
 </html>

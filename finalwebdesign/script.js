@@ -18,6 +18,57 @@ function checkFlexGap() {
 }
 checkFlexGap();
 
+// JS cho Menu Mobile
+const mobileBtn = document.getElementById('mobile-btn');
+    const navList = document.getElementById('main-nav');
+
+    if (mobileBtn && navList) {
+        mobileBtn.addEventListener('click', () => {
+            navList.classList.toggle('open');
+            mobileBtn.textContent = navList.classList.contains('open') ? '✕' : '☰';
+        });
+    }
+
+    // JS cho Form
+    const sampleForm = document.getElementById('sampleForm');
+    const successMsg = document.getElementById('successMsg');
+
+    if (sampleForm && successMsg) {
+        sampleForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            sampleForm.style.display = 'none';
+            successMsg.style.display = 'block';
+
+            setTimeout(() => {
+                sampleForm.reset();
+                sampleForm.style.display = 'block';
+                successMsg.style.display = 'none';
+            }, 4000);
+        });
+    }
+
+//module
+    (function() {
+            const modal = document.getElementById('pricingModal');
+            const btns = document.querySelectorAll('.btn-pricing');
+            const closeBtn = document.getElementById('closeModal');
+
+            btns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            const close = () => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            };
+            closeBtn.onclick = close;
+            window.onclick = (e) => { if (e.target == modal) close(); };
+        })();
+
 // https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js
 
 /*

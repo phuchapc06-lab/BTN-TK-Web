@@ -1,0 +1,216 @@
+.btn-mobile-nav {
+        display: none;
+        font-size: 3.6rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #333;
+        padding: 0.5rem;
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+        .hero, .step {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 4.8rem;
+        }
+    }
+
+    /* Điện thoại */
+    @media (max-width: 768px) {
+        html { font-size: 54%; }
+        
+        .header {
+            height: 7.2rem;
+            padding: 0 2rem;
+        }
+        
+        .main-nav-list {
+            position: fixed;
+            top: 7.2rem;
+            left: 100%;
+            width: 100%;
+            height: calc(100vh - 7.2rem);
+            background-color: #fdf2e9;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 999;
+        }
+        
+        .main-nav-list.open {
+            left: 0;
+        }
+        
+        .btn-mobile-nav {
+            display: block;
+        }
+        
+        .heading-primary {
+            font-size: 3.6rem;
+            line-height: 1.1;
+        }
+        
+        section {
+            padding: 6rem 0;
+        }
+        
+        .container {
+            padding: 0 2rem;
+        }
+        
+        .meal-grid, .pricing-grid, .testimonial-grid {
+            grid-template-columns: 1fr;
+            gap: 2.4rem;
+        }
+        
+        .gallery {
+            grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+            gap: 1.2rem;
+        }
+    }
+
+    /* Điện thoại màn nhỏ */
+    @media (max-width: 480px) {
+        .heading-primary {
+            font-size: 3.2rem;
+        }
+        .btn {
+            padding: 1.4rem 2.8rem;
+            font-size: 1.8rem;
+        }
+    }
+
+    /* Style module phụ */
+    .module {
+        background: #fff;
+        padding: 4rem 2.4rem;
+        border-radius: 11px;
+        margin: 5rem auto;
+        max-width: 100%;
+        box-shadow: 0 2rem 6rem rgba(0,0,0,0.1);
+    }
+
+    .success-message {
+        display: none;
+        background: #51cf66;
+        color: white;
+        padding: 2rem;
+        border-radius: 9px;
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 1.9rem;
+    }
+/* Modal */
+     .p-modal-wrapper {
+            display: none; 
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000000;
+            display: none; 
+            align-items: center; 
+            justify-content: center;
+        }
+
+        .p-modal-box {
+            background-color: #fdf2e9;
+            width: 95%;
+            max-width: 500px; 
+            max-height: 90vh;
+            border-radius: 20px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        .p-header {
+            background-color: #e67e22;
+            padding: 2.5rem;
+            text-align: center;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .p-header h2 { font-size: 2.4rem; color: #fff; margin-bottom: 0.5rem; }
+
+        .p-scroll-body {
+            padding: 2.5rem 3.5rem;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .p-form-group { 
+            display: flex; 
+            flex-direction: column; 
+            margin-bottom: 2rem; 
+        }
+
+        .p-form-group label {
+            font-size: 1.4rem; 
+            font-weight: 700; 
+            margin-bottom: 0.8rem; 
+            color: #45260a; 
+        }
+
+        .white-input {
+            padding: 1.3rem;
+            background: #ffffff !important;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1.6rem;
+            color: #000 !important;
+            width: 100%;
+            font-family: inherit;
+        }
+
+        .p-input-readonly {
+            background: #eee !important;
+            color: #e67e22 !important;
+            font-weight: 800;
+            border: 2px dashed #e67e22 !important;
+            text-align: center;
+            padding: 1.2rem;
+            border-radius: 10px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #45260a;
+            color: #fff;
+            padding: 1.8rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover { background-color: #000; }
+
+        .p-close-btn {
+            position: absolute;
+            top: 1.2rem; right: 1.5rem;
+            font-size: 3rem; color: #fff;
+            cursor: pointer; z-index: 100;
+        }
+
+        /* Tùy chỉnh thanh cuộn */
+        .p-scroll-body::-webkit-scrollbar { width: 6px; }
+        .p-scroll-body::-webkit-scrollbar-thumb { background: #e67e22; border-radius: 10px; }
+    
+
+    
+
+
