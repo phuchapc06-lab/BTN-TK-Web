@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+  // ===== FIX FLEX GAP =====
   function checkFlexGap() {
     var flex = document.createElement("div");
     flex.style.display = "flex";
@@ -11,12 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.body.appendChild(flex);
     var isSupported = flex.scrollHeight === 1;
-    flex.parentNode.removeChild(flex);
+    flex.remove();
 
     if (!isSupported) document.body.classList.add("no-flexbox-gap");
   }
   checkFlexGap();
 
+  // ===== MODAL =====
   const modal = document.getElementById("pricingModal");
   const btns = document.querySelectorAll(".btn-pricing");
   const closeBtn = document.getElementById("closeModal");
@@ -36,19 +38,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  const close = () => {
+  function closeModal() {
     modal.style.display = "none";
     document.body.style.overflow = "auto";
-  };
+  }
 
-  if (closeBtn) closeBtn.onclick = close;
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
 
   window.addEventListener("click", function (e) {
-    if (e.target === modal) close();
+    if (e.target === modal) closeModal();
   });
 
+  // ===== TOAST =====
   const toast = document.createElement("div");
-  toast.textContent = "🎉 Đăng ký thành công!";
+  toast.innerText = "🎉 Đăng ký thành công!";
   document.body.appendChild(toast);
 
   Object.assign(toast.style, {
@@ -68,14 +71,16 @@ document.addEventListener("DOMContentLoaded", function () {
     zIndex: "9999999"
   });
 
+  // ===== SUBMIT FORM =====
   if (form) {
-    console.log("FORM OK");
-
     form.addEventListener("submit", function (e) {
-      e.preventDefault();
+      e.preventDefault(); // ❗ QUAN TRỌNG NHẤT
 
-      close();
+      console.log("SUBMIT OK"); // test debug
 
+      closeModal();
+
+      // show toast
       toast.style.opacity = "1";
       toast.style.transform = "translateY(0)";
 
