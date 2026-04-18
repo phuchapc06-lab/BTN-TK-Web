@@ -1,0 +1,179 @@
+<style>
+body { font-family: Arial; }
+/* ===== BUTTON ===== */
+.btn {
+    padding: 12px 24px;
+    background: #e67e22;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* ===== MODAL ===== */
+.p-modal-wrapper {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.p-modal-box {
+    background-color: #fdf2e9;
+    width: 95%;
+    max-width: 500px;
+    max-height: 90vh;
+    border-radius: 20px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.p-header {
+    background-color: #e67e22;
+    padding: 2rem;
+    text-align: center;
+    color: #fff;
+}
+
+.p-scroll-body {
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.p-form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.p-form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.white-input {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: #45260a;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.p-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+</style>
+
+<!-- GÓI BASE -->
+<a href="javascript:void(0)" class="btn btn--full btn-pricing" data-plan="base">Start eating well</a>
+
+<!-- GÓI FULL -->
+<a href="javascript:void(0)" class="btn btn--full btn-pricing" data-plan="full">Start eating well</a>
+
+<!-- ===== FORM ĐĂNG KÝ ===== -->
+<div id="pricingModal" class="p-modal-wrapper">
+    <div class="p-modal-box">
+        <span id="closeModal" class="p-close-btn">&times;</span>
+
+        <div class="p-header">
+            <h2>Đăng ký hội viên</h2>
+            <p>Khởi đầu lối sống lành mạnh cùng SoulFood</p>
+        </div>
+
+        <div class="p-scroll-body">
+            <form id="registerForm">
+
+                <div class="p-form-group">
+                    <label>Gói dịch vụ đã chọn</label>
+                    <select id="select-where" class="white-input" required>
+                        <option selected disabled hidden value="">Vui lòng chọn gói</option>
+                        <option value="full">GÓI ĐẦY ĐỦ (FULL)</option>
+                        <option value="base">GÓI CƠ BẢN (BASE)</option>
+                    </select>
+                </div>
+
+                <div class="p-form-group">
+                    <label>Họ và tên</label>
+                    <input type="text" class="white-input" required>
+                </div>
+
+                <div class="p-form-group">
+                    <label>Số điện thoại</label>
+                    <input type="tel" class="white-input" required>i
+</div>
+<div class="p-form-group">
+                    <label>Email</label>
+                    <input type="email" class="white-input" required>
+                </div>
+
+                <div class="p-form-group">
+                    <label>Ghi chú yêu cầu</label>
+                    <textarea rows="2" class="white-input"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Xác nhận đăng ký</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- JAVASCRIPT -->
+<script>
+const modal = document.getElementById('pricingModal');
+const btns = document.querySelectorAll('.btn-pricing');
+const closeBtn = document.getElementById('closeModal');
+const select = document.getElementById('select-where');
+const form = document.getElementById('registerForm');
+
+// mở modal + chọn gói
+btns.forEach(btn => {
+    btn.addEventListener('click', function() {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        select.value = this.dataset.plan;
+    });
+});
+
+// đóng modal
+const close = () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+};
+
+closeBtn.onclick = close;
+
+window.onclick = (e) => {
+    if (e.target === modal) close();
+};
+
+// ===== THÊM THÔNG BÁO THÀNH CÔNG =====
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // không reload
+    alert('Đăng ký thành công!');
+    form.reset();
+});
+</script>
