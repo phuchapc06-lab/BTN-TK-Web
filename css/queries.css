@@ -1,9 +1,9 @@
-/* rem and em do NOT depend on html font-size in media queries! Instead, 1rem = 1em = 16px */
-
+/* rem và em không phụ thuộc vào kich thước phông chữ HTML trong các truy vấn Thay vào đó, 1rem = 1em =16px*/
 /**************************/
-/* BELOW 1344px (Smaller desktops) */
+/* DƯỚI 1344px (deskop nhỏ hơn)*/
 /**************************/
 
+/* 1350/16=84.35 nên lấy 84 luôn */
 @media (max-width: 84em) {
   .hero {
     max-width: 120rem;
@@ -19,7 +19,7 @@
 }
 
 /**************************/
-/* BELOW 1200px (Landscape Tablets) */
+/* DƯỚI 1200px (TABLET ngang) */
 /**************************/
 
 @media (max-width: 75em) {
@@ -59,7 +59,7 @@
 }
 
 /**************************/
-/* BELOW 944px (Tablets) */
+/* DƯỚI 944px (Tablets) */
 /**************************/
 
 @media (max-width: 59em) {
@@ -141,16 +141,16 @@
     transition: all 0.5s ease-in;
 
     /* Hide navigation */
-    /* Allows NO transitions at all */
+    /* Không cho phép bất kỳ hiệu ứng nào*/
     /* display: none; */
 
-    /* 1) Hide it visually */
+    /* 1) Ẩn nó đi về mặt hình ảnh*/
     opacity: 0;
 
-    /* 2) Make it unaccessible to mouse and keyboard */
+    /* 2) Không cho phép truy cập bằng chuột và bàn phím*/
     pointer-events: none;
 
-    /* 3) Hide it from screen readers */
+    /* 3)Ẩn nó khỏi trình đọc màn hình */
     visibility: hidden;
   }
 
@@ -181,7 +181,7 @@
 }
 
 /**************************/
-/* BELOW 704px (Smaller tablets) */
+/* Dưới 704px (Smaller tablets) */
 /**************************/
 
 @media (max-width: 44em) {
@@ -220,7 +220,7 @@
 }
 
 /**************************/
-/* BELOW 544px (Phones) */
+/* DƯỚI 544px (Phones) */
 /**************************/
 
 @media (max-width: 34em) {
