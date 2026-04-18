@@ -91,7 +91,9 @@
   .logos img {
     height: 2.4rem;
   }
-
+  .logo {
+    height: 3rem;
+  }
   .step-number {
     font-size: 7.4rem;
   }
@@ -254,6 +256,9 @@
 
   .logos img {
     height: 0.2rem;
+  }
+  .logo {
+    height: 2.4rem;
   }
 
   .step-img-box:nth-child(2) {
