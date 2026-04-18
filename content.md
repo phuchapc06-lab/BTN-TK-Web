@@ -1,6 +1,6 @@
-# Omnifood
+# Soulfood
 
-## About Omnifood
+## About Soulfood
 
 Chúng tôi trước hết là một công ty công nghệ, nhưng đồng thời tập trung mạnh mẽ vào việc nâng cao sức khỏe người tiêu dùng thông qua chế độ ăn uống lành mạnh. Hầu hết mọi người đều rất bận rộn với công việc, gia đình, bạn bè và các hoạt động quan trọng khác, khiến họ không còn nhiều thời gian để nấu ăn. Điều này có thể dẫn đến chế độ ăn uống kém lành mạnh và gây ra những hệ quả lâu dài cho sức khỏe.
 
@@ -58,20 +58,20 @@ Phù hợp cho trẻ em (Kid-friendly)
 
 ### Sample meals
 
-**Omnifood AI chooses from 5,000+ recipes**
+**Soulfood AI chọn từ hơn 5.000 công thức nấu ăn**
 
-Meal 1: Japanese Gyozas
+Meal 1: Bún bò huế
 
-- Category: Vegetarian
+- Category Tăng cơ-Giàu đạm
 - Calories: 650
 - NutriScore (Registered): 74
 - Average rating: 4.9
 - Number reviews: 537
 
-Meal 2: Avocado Salad
+Meal 2: Pasta
 
-- Category: Vegan and Paleo
-- Calories: 400
+- Category: Eat clean và Giàu đạm
+- Calories: 700
 - NutriScore (Registered): 92
 - Average rating: 4.8
 - Number reviews: 441
@@ -86,18 +86,18 @@ Những bữa ăn lành mạnh, ngon miệng và không rắc rối đang chờ 
 
 Giá đã bao gồm tất cả các loại thuế áp dụng. Người dùng có thể hủy bất cứ lúc nào.
 
-Starter: $399 per month
+Gói cơ bản: $199 1 tháng
 
-- 1 meal per day
-- Order times are between 11am and 9pm
-- Delivery is free
+- 1 bữa mỗi ngày
+- Đặt hàng từ 11am-9pm
+- Giao hàng miễn phíe
 
-Complete: $649 per month
+Complete: $349 1 tháng
 
-- 2 meal per day
-- Order 24/7
-- Delivery is free
-- Get access to latest recipes
+- 2 bữa 1 ngày
+- Đặt hàng 24/7
+- Giao hàng miễn phí
+- Khám phá công thức mới
 
 ### Photo gallery
 
@@ -109,21 +109,21 @@ Complete: $649 per month
 
 [Photos of customers included]
 
-“Những bữa ăn giá cả hợp lý, lành mạnh và cực kỳ ngon miệng, mà thậm chí không cần phải tự đặt món! Cảm giác thật sự kỳ diệu.” (Dave Bryson)
+“Bữa ăn ngon – lành mạnh – giá “hạt dẻ”, lại chẳng cần tự tay đặt món… cứ chill thôi, mọi thứ đã có Soulfood AI lo hết. Cảm giác đúng kiểu “mê thật sự”, nhẹ nhàng mà cuốn.” (Sơn Tùng)
 
-“Thuật toán AI hoạt động cực kỳ tốt, lần nào cũng chọn đúng món phù hợp với tôi. Thật tuyệt khi không còn phải lo lắng về việc ăn uống nữa!” (Ben Hadley)
+“The AI algorithm is crazy good, it chooses the right meals for me every time. It's amazing not to worry about food anymore!” (Sam Altman)
 
-“Omnifood đúng là cứu tinh! Tôi vừa mới khởi nghiệp nên không có thời gian nấu ăn. Giờ thì tôi không thể sống thiếu những bữa ăn hàng ngày này!” (Steve Miller)
+“Soulfood is a life saver! With this Iran war going on, there’s absolutely no time for cooking. I'm too busy winning! I couldn’t live without my daily meals now. High quality!” (Donald Trump)
 
-“Tôi đăng ký Omnifood cho cả gia đình và tiết kiệm được rất nhiều thời gian! Hơn nữa, mọi thứ đều là hữu cơ, thuần chay và không sử dụng nhựa.” (Hannah Smith)
+“Mình đăng ký Soulfood cho cả gia đình, giúp tiết kiệm rất nhiều thời gian. Bữa ăn luôn đảm bảo organic, thuần chay và hoàn toàn không sử dụng nhựa, vừa tốt cho sức khỏe vừa thân thiện với môi trường.” (Khánh Linh)
 
 ### Section with logos of featured publications [see images]
 
 ### Contact information
 
-Address: 623 Harrison St., 2nd Floor, San Francisco, CA 94107
-Phone: 415-201-6370
-Email: hello@omnifood.com
+Address:Tầng 7, tòa A2, đại học kinh tế quốc dân, Hà Nội, Việt Nam
+Phone: 0383869999
+Email: soulfood@gmail.com
 
 Social profiles: instagram, facebook, twitter [links to them not available yet]
 
@@ -147,7 +147,6 @@ Privacy & terms
 
 -- Logo + Navigation
 -- Hero
--- Featured in
 -- How it works
 -- Meal(and list of diets)
 -- Testimonials + Gallery
